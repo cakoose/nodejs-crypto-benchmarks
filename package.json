@@ -1,0 +1,38 @@
+{
+    "name": "crypto-benchmarks",
+    "version": "0.0.1",
+    "description": "Measures the execution time of some crypto algorithm implementations.",
+    "scripts": {
+        "build": "./node_modules/.bin/tsc",
+        "bench": "./node_modules/.bin/ts-node main.ts"
+    },
+    "author": "Kannan Goundan <kannan@cakoose.com>",
+    "license": "CC0-1.0",
+    "dependencies": {
+        "argparse": "1.0.10",
+        "benchmark": "2.1.4",
+        "blake2": "2.0.1",
+        "blake2.wasm": "0.1.0",
+        "chacha": "2.1.0",
+        "ed25519": "0.0.4",
+        "ed25519-supercop": "1.2.0",
+        "js-sha3": "0.8.0",
+        "jssha": "2.3.1",
+        "keccak": "2.0.0",
+        "semver": "5.6.0",
+        "sha3": "2.0.1",
+        "sodium": "3.0.2",
+        "sodium-native": "2.3.0"
+    },
+    "devDependencies": {
+        "@types/argparse": "1.0.36",
+        "@types/benchmark": "1.0.31",
+        "@types/ed25519": "0.0.0",
+        "@types/jssha": "2.0.0",
+        "@types/node": "11.11.6",
+        "@types/semver": "5.5.0",
+        "ts-node": "8.0.3",
+        "tslint": "5.14.0",
+        "typescript": "3.3.4000"
+    }
+}
