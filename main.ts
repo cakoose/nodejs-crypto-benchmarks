@@ -186,15 +186,16 @@ async function mainAsync(progName: string, args: Array<string>) {
     }
 
     console.log("------------------------------------------------");
-    console.log("Generate Random Bytes");
+    console.log("Generate Random Bytes (into existing Buffer)");
     console.log();
     for (const numBytes of [16, 32, 64, 1024]) {
+        const buffer = Buffer.alloc(numBytes);
         const suite = createSuiteReportMean(test, numBytes, `${numBytes} bytes`);
         for (const {name, source, impl} of r.randomAlgos) {
             const fullName = `${name}, ${source}`;
             if (!passesFilter(fullName)) continue;
             suite.add(fullName, () => {
-                impl(numBytes);
+                impl(buffer);
             });
         }
         suite.run();

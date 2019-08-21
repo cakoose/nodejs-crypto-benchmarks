@@ -138,9 +138,5 @@ export const register = async (r: Registry) => {
 
 
     // randombytes_buf
-    r.randomAlgos.push({name: 'randombytes_buf', source, impl: numBytes => {
-        const b = Buffer.allocUnsafe(numBytes);
-        sodiumNative.randombytes_buf(b);
-        return b;
-    }});
+    r.randomAlgos.push({name: 'randombytes_buf', source, impl: sodiumNative.randombytes_buf});
 };

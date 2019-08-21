@@ -23,7 +23,7 @@ export type SymmetricEncryptAndAuthImpl = {
     verifyDecrypt: (iv: Buffer, chunks: Array<Buffer>) => Array<Buffer> | null,
 };
 
-export type RandomImpl = (numBytes: number) => Buffer;
+export type RandomImpl = (output: Buffer) => void;
 
 export type Algo<Impl> = {
     name: string,

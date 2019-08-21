@@ -210,6 +210,5 @@ export const register = async (r: Registry) => {
     }
 
     // randomBytes
-    // TODO: Test with reused buffer (randomFillSync)?
-    r.randomAlgos.push({name: 'randomBytes', source, impl: crypto.randomBytes});
+    r.randomAlgos.push({name: 'randomFillSync', source, impl: crypto.randomFillSync});
 };
