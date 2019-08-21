@@ -21,4 +21,4 @@ $ yarn run bench [regex]
 
 ## Results
 
-[MacBook Pro 15" 2017, Intel Core i7](results/MacBook-Pro-15-2017-Intel-Core-i7.md)
+TODO
