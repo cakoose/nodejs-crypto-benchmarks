@@ -16,7 +16,7 @@ Clone this repo, then run:
 
 ```
 $ yarn install --frozen-lockfile
-$ yarn run bench [regex]
+$ yarn run bench [--include <regex>] [--exclude <regex>] [--test]
 ```
 
 ## Results
