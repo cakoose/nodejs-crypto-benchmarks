@@ -15,7 +15,7 @@ As with all benchmarks, **be careful when interpreting the results!**
 Clone this repo, then run:
 
 ```
-$ yarn install
+$ yarn install --frozen-lockfile
 $ yarn run bench [regex]
 ```
 
