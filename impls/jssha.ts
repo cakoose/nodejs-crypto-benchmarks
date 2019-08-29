@@ -3,7 +3,7 @@ import jssha = require("jssha");
 import {Registry} from "../impl";
 
 export const register = async (r: Registry) => {
-    r.packages.push('jssha');
+    r.packages.add('jssha');
 
     // NPM jssha
     for (const [name, ident] of [

@@ -4,7 +4,7 @@ const keccakNative = require('keccak/bindings');
 import {Registry} from "../impl";
 
 export const register = async (r: Registry) => {
-    r.packages.push('keccak');
+    r.packages.add('keccak');
 
     for (const [construct, implVariant] of [[keccakNative, 'native'], [keccakJs, 'JS']]) {
         const source = `NPM keccak (${implVariant})`;

@@ -40,7 +40,7 @@ export type Algo<Impl> = {
 };
 
 export type Registry = {
-    packages: Array<string>,
+    packages: Set<string>,
     hashAlgos: Array<Algo<HashImpl>>,
     macAlgos: Array<Algo<HashImpl>>,
     asymmetricSignAlgos: Array<Algo<AsymmetricSignImpl>>,

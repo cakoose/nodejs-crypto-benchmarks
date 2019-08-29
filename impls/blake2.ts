@@ -3,7 +3,7 @@ const blake2 = require('blake2');
 import {Registry} from "../impl";
 
 export const register = async (r: Registry) => {
-    r.packages.push('blake2');
+    r.packages.add('blake2');
 
     const macKey = r.macKey;
     for (const variant of ['b', 'bp', 's', 'sp']) {

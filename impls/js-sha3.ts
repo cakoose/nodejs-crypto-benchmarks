@@ -5,7 +5,7 @@ import {Registry} from "../impl";
 const EMPTY_BUFFER = Buffer.alloc(0);
 
 export const register = async (r: Registry) => {
-    r.packages.push('js-sha3');
+    r.packages.add('js-sha3');
 
     const macKey = r.macKey;
     for (const [numBits, impl] of [

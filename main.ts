@@ -40,7 +40,7 @@ async function mainAsync(progName: string, args: Array<string>) {
     };
 
     const r: Registry = {
-        packages: [],
+        packages: new Set(),
         hashAlgos: [],
         macAlgos: [],
         asymmetricSignAlgos: [],
@@ -255,7 +255,7 @@ function createBufferWithOwnArrayBuffer(numBytes: number): Buffer {
     return b;
 }
 
-function printSystemInformation(packages: Array<string>) {
+function printSystemInformation(packages: Iterable<string>) {
     const cpuCountsByModel = new Map();
     for (const cpu of os.cpus()) {
         if (cpuCountsByModel.has(cpu.model)) {

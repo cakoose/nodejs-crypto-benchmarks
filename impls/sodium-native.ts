@@ -6,7 +6,7 @@ import {Registry} from "../impl";
 // a variant where we test that use case?
 export const register = async (r: Registry) => {
     const source = "NPM sodium-native";
-    r.packages.push('sodium-native');
+    r.packages.add('sodium-native');
 
     const macKey = r.macKey;
 

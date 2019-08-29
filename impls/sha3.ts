@@ -3,7 +3,7 @@ const sha3 = require('sha3');
 import {Registry} from "../impl";
 
 export const register = async (r: Registry) => {
-    r.packages.push('sha3');
+    r.packages.add('sha3');
 
     for (const numBits of [256, 512]) {
         r.hashAlgos.push({name: `SHA-3-${numBits}`, source: "NPM sha3", impl: {streaming: handler => handler({

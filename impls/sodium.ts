@@ -4,7 +4,7 @@ import {Registry} from "../impl";
 
 export const register = async (r: Registry) => {
     const source = "NPM sodium";
-    r.packages.push('sodium');
+    r.packages.add('sodium');
     const macKey = r.macKey;
 
     // crypto_hash

@@ -3,7 +3,7 @@ const blake2Wasm = require('blake2.wasm');
 import {Registry} from "../impl";
 
 export const register = async (r: Registry) => {
-    r.packages.push('blake2.wasm');
+    r.packages.add('blake2.wasm');
 
     await new Promise((resolve, reject) => {
         blake2Wasm.ready(() => { resolve(); });

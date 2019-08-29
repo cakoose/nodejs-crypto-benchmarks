@@ -6,7 +6,7 @@ import {Registry} from "../impl";
 const EMPTY_BUFFER = Buffer.alloc(0);
 
 export const register = async (r: Registry) => {
-    r.packages.push('chacha-native');
+    r.packages.add('chacha-native');
 
     const key = Buffer.alloc(32);
     r.symmetricEncryptAndAuthAlgos.push({
