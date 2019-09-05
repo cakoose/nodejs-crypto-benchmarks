@@ -1,0 +1,453 @@
+CPU      8x Intel(R) Core(TM) i7-7920HQ CPU @ 3.10GHz
+Node     11.15.0
+V8       7.0.276.38-node.19
+OpenSSL  1.1.1b
+OS       darwin, 18.7.0
+NPM 
+    chacha-native 2.0.2
+    blake2 2.0.1
+    sodium 3.0.2
+    sodium-native 2.4.6
+    blake2.wasm 0.1.0
+    keccak 2.0.0
+    jssha 2.3.1
+    js-sha3 0.8.0
+    sha3 2.0.7
+    ed25519 0.0.4
+    ed25519-supercop 1.2.0
+
+Reported value is "ns per input byte".
+Reported value is the fastest of multiple test samples, except for random number
+generation, where we report the mean.
+
+------------------------------------------------
+Hash
+
+128B
+   28.79  BLAKE2b, NPM blake2
+   29.71  BLAKE2b, NPM blake2.wasm
+    6.80  BLAKE2b, NPM sodium
+    2.47  BLAKE2b, NPM sodium-native
+   38.45  BLAKE2bp, NPM blake2
+   31.11  BLAKE2s, NPM blake2
+   38.73  BLAKE2s, NPM blake2.wasm
+   39.66  BLAKE2sp, NPM blake2
+   14.59  MD5 (insecure), Node crypto
+   39.04  SHA-1 (insecure), NPM jssha
+   14.02  SHA-1 (insecure), Node crypto
+  240.73  SHA-2-256, NPM jssha
+   12.80  SHA-2-256, NPM sodium
+    8.16  SHA-2-256, NPM sodium-native
+   15.99  SHA-2-256, Node crypto
+  211.25  SHA-2-512, NPM jssha
+   11.09  SHA-2-512, NPM sodium
+    6.88  SHA-2-512, NPM sodium-native
+   18.73  SHA-2-512, Node crypto
+   27.02  SHA-3-256, NPM js-sha3
+  298.77  SHA-3-256, NPM jssha
+   39.40  SHA-3-256, NPM keccak (JS)
+   27.09  SHA-3-256, NPM keccak (native)
+   96.77  SHA-3-256, NPM sha3
+   43.14  SHA-3-512, NPM js-sha3
+  548.80  SHA-3-512, NPM jssha
+   58.11  SHA-3-512, NPM keccak (JS)
+   33.23  SHA-3-512, NPM keccak (native)
+  177.98  SHA-3-512, NPM sha3
+   25.87  SHAKE-128, NPM js-sha3
+  236.20  SHAKE-128, NPM jssha
+   63.52  SHAKE-128, NPM keccak (JS)
+   32.45  SHAKE-128, NPM keccak (native)
+   26.59  SHAKE-256, NPM js-sha3
+  235.59  SHAKE-256, NPM jssha
+  105.22  SHAKE-256, NPM keccak (JS)
+   41.09  SHAKE-256, NPM keccak (native)
+
+4k
+    1.93  BLAKE2b, NPM blake2
+   11.16  BLAKE2b, NPM blake2.wasm
+    1.10  BLAKE2b, NPM sodium
+    1.00  BLAKE2b, NPM sodium-native
+    2.08  BLAKE2bp, NPM blake2
+    2.27  BLAKE2s, NPM blake2
+   18.09  BLAKE2s, NPM blake2.wasm
+    2.49  BLAKE2sp, NPM blake2
+    1.64  MD5 (insecure), Node crypto
+   24.67  SHA-1 (insecure), NPM jssha
+    1.28  SHA-1 (insecure), Node crypto
+  241.80  SHA-2-256, NPM jssha
+    4.10  SHA-2-256, NPM sodium
+    3.80  SHA-2-256, NPM sodium-native
+    2.31  SHA-2-256, Node crypto
+  101.75  SHA-2-512, NPM jssha
+    2.66  SHA-2-512, NPM sodium
+    2.38  SHA-2-512, NPM sodium-native
+    1.73  SHA-2-512, Node crypto
+   19.27  SHA-3-256, NPM js-sha3
+  207.67  SHA-3-256, NPM jssha
+   20.87  SHA-3-256, NPM keccak (JS)
+    4.13  SHA-3-256, NPM keccak (native)
+   82.84  SHA-3-256, NPM sha3
+   33.22  SHA-3-512, NPM js-sha3
+  371.75  SHA-3-512, NPM jssha
+   34.76  SHA-3-512, NPM keccak (JS)
+    6.93  SHA-3-512, NPM keccak (native)
+  147.26  SHA-3-512, NPM sha3
+   15.97  SHAKE-128, NPM js-sha3
+  165.18  SHAKE-128, NPM jssha
+   18.14  SHAKE-128, NPM keccak (JS)
+    3.56  SHAKE-128, NPM keccak (native)
+   19.10  SHAKE-256, NPM js-sha3
+  204.17  SHAKE-256, NPM jssha
+   22.67  SHAKE-256, NPM keccak (JS)
+    4.44  SHAKE-256, NPM keccak (native)
+
+128k
+    1.13  BLAKE2b, NPM blake2
+   10.43  BLAKE2b, NPM blake2.wasm
+    0.91  BLAKE2b, NPM sodium
+    0.95  BLAKE2b, NPM sodium-native
+    1.17  BLAKE2bp, NPM blake2
+    1.46  BLAKE2s, NPM blake2
+   17.34  BLAKE2s, NPM blake2.wasm
+    1.52  BLAKE2sp, NPM blake2
+    1.26  MD5 (insecure), Node crypto
+    0.89  SHA-1 (insecure), Node crypto
+    3.80  SHA-2-256, NPM sodium
+    3.62  SHA-2-256, NPM sodium-native
+    1.91  SHA-2-256, Node crypto
+    2.36  SHA-2-512, NPM sodium
+    2.21  SHA-2-512, NPM sodium-native
+    1.29  SHA-2-512, Node crypto
+   18.25  SHA-3-256, NPM js-sha3
+   19.35  SHA-3-256, NPM keccak (JS)
+    3.28  SHA-3-256, NPM keccak (native)
+   32.48  SHA-3-512, NPM js-sha3
+   33.15  SHA-3-512, NPM keccak (JS)
+    6.10  SHA-3-512, NPM keccak (native)
+   15.22  SHAKE-128, NPM js-sha3
+   16.26  SHAKE-128, NPM keccak (JS)
+    2.65  SHAKE-128, NPM keccak (native)
+   18.16  SHAKE-256, NPM js-sha3
+   20.69  SHAKE-256, NPM keccak (JS)
+    3.32  SHAKE-256, NPM keccak (native)
+
+4M
+    1.11  BLAKE2b, NPM blake2
+   10.62  BLAKE2b, NPM blake2.wasm
+    0.91  BLAKE2b, NPM sodium
+    0.99  BLAKE2b, NPM sodium-native
+    1.19  BLAKE2bp, NPM blake2
+    1.42  BLAKE2s, NPM blake2
+   17.22  BLAKE2s, NPM blake2.wasm
+    1.50  BLAKE2sp, NPM blake2
+    1.23  MD5 (insecure), Node crypto
+    0.87  SHA-1 (insecure), Node crypto
+    3.75  SHA-2-256, NPM sodium
+    3.60  SHA-2-256, NPM sodium-native
+    1.88  SHA-2-256, Node crypto
+    2.34  SHA-2-512, NPM sodium
+    2.19  SHA-2-512, NPM sodium-native
+    1.27  SHA-2-512, Node crypto
+   18.40  SHA-3-256, NPM js-sha3
+   19.29  SHA-3-256, NPM keccak (JS)
+    3.23  SHA-3-256, NPM keccak (native)
+   32.18  SHA-3-512, NPM js-sha3
+   33.43  SHA-3-512, NPM keccak (JS)
+    6.06  SHA-3-512, NPM keccak (native)
+   15.16  SHAKE-128, NPM js-sha3
+   16.21  SHAKE-128, NPM keccak (JS)
+    2.61  SHAKE-128, NPM keccak (native)
+   18.27  SHAKE-256, NPM js-sha3
+   19.18  SHAKE-256, NPM keccak (JS)
+    3.23  SHAKE-256, NPM keccak (native)
+
+4M streaming (4k chunks)
+    1.10  BLAKE2b, NPM blake2
+   10.55  BLAKE2b, NPM blake2.wasm
+    0.95  BLAKE2b, NPM sodium
+    0.96  BLAKE2b, NPM sodium-native
+    1.14  BLAKE2bp, NPM blake2
+    1.43  BLAKE2s, NPM blake2
+   17.42  BLAKE2s, NPM blake2.wasm
+    1.49  BLAKE2sp, NPM blake2
+    1.26  MD5 (insecure), Node crypto
+    0.89  SHA-1 (insecure), Node crypto
+    3.89  SHA-2-256, NPM sodium
+    3.65  SHA-2-256, NPM sodium-native
+    1.91  SHA-2-256, Node crypto
+    2.41  SHA-2-512, NPM sodium
+    2.25  SHA-2-512, NPM sodium-native
+    1.30  SHA-2-512, Node crypto
+   18.34  SHA-3-256, NPM js-sha3
+   19.25  SHA-3-256, NPM keccak (JS)
+    3.27  SHA-3-256, NPM keccak (native)
+   32.06  SHA-3-512, NPM js-sha3
+   33.05  SHA-3-512, NPM keccak (JS)
+    6.10  SHA-3-512, NPM keccak (native)
+   15.23  SHAKE-128, NPM js-sha3
+   16.15  SHAKE-128, NPM keccak (JS)
+    2.67  SHAKE-128, NPM keccak (native)
+   18.20  SHAKE-256, NPM js-sha3
+   19.21  SHAKE-256, NPM keccak (JS)
+    3.30  SHAKE-256, NPM keccak (native)
+
+------------------------------------------------
+Hash-based MAC, 32-byte key
+
+128B
+   34.41  BLAKE2b with key, NPM blake2
+   46.25  BLAKE2b with key, NPM blake2.wasm
+    8.32  BLAKE2b with key, NPM sodium
+    3.83  BLAKE2b with key, NPM sodium-native
+   40.75  BLAKE2bp with key, NPM blake2
+   33.91  BLAKE2s with key, NPM blake2
+   49.81  BLAKE2s with key, NPM blake2.wasm
+   42.18  BLAKE2sp with key, NPM blake2
+   22.99  HMAC-MD5 (insecure), Node crypto
+   22.32  HMAC-SHA-1 (insecure), Node crypto
+   25.81  HMAC-SHA-2-256, Node crypto
+   27.76  HMAC-SHA-2-512, Node crypto
+   17.42  SHA-2-512 prefix-MAC trunc 256, Node crypto
+  122.71  SHAKE/KMAC-128, NPM js-sha3
+  113.43  SHAKE/KMAC-256, NPM js-sha3
+
+4k
+    1.99  BLAKE2b with key, NPM blake2
+   11.54  BLAKE2b with key, NPM blake2.wasm
+    1.13  BLAKE2b with key, NPM sodium
+    1.04  BLAKE2b with key, NPM sodium-native
+    2.24  BLAKE2bp with key, NPM blake2
+    2.31  BLAKE2s with key, NPM blake2
+   18.24  BLAKE2s with key, NPM blake2.wasm
+    2.69  BLAKE2sp with key, NPM blake2
+    1.93  HMAC-MD5 (insecure), Node crypto
+    1.55  HMAC-SHA-1 (insecure), Node crypto
+    2.68  HMAC-SHA-2-256, Node crypto
+    2.13  HMAC-SHA-2-512, Node crypto
+    1.75  SHA-2-512 prefix-MAC trunc 256, Node crypto
+   27.19  SHAKE/KMAC-128, NPM js-sha3
+   30.12  SHAKE/KMAC-256, NPM js-sha3
+
+128k
+    1.12  BLAKE2b with key, NPM blake2
+   10.37  BLAKE2b with key, NPM blake2.wasm
+    0.91  BLAKE2b with key, NPM sodium
+    0.95  BLAKE2b with key, NPM sodium-native
+    1.17  BLAKE2bp with key, NPM blake2
+    1.45  BLAKE2s with key, NPM blake2
+   17.24  BLAKE2s with key, NPM blake2.wasm
+    1.52  BLAKE2sp with key, NPM blake2
+    1.26  HMAC-MD5 (insecure), Node crypto
+    0.89  HMAC-SHA-1 (insecure), Node crypto
+    1.91  HMAC-SHA-2-256, Node crypto
+    1.29  HMAC-SHA-2-512, Node crypto
+    1.28  SHA-2-512 prefix-MAC trunc 256, Node crypto
+   24.04  SHAKE/KMAC-128, NPM js-sha3
+   27.04  SHAKE/KMAC-256, NPM js-sha3
+
+4M
+    1.09  BLAKE2b with key, NPM blake2
+   10.42  BLAKE2b with key, NPM blake2.wasm
+    0.90  BLAKE2b with key, NPM sodium
+    0.94  BLAKE2b with key, NPM sodium-native
+    1.18  BLAKE2bp with key, NPM blake2
+    1.42  BLAKE2s with key, NPM blake2
+   17.20  BLAKE2s with key, NPM blake2.wasm
+    1.50  BLAKE2sp with key, NPM blake2
+    1.24  HMAC-MD5 (insecure), Node crypto
+    0.86  HMAC-SHA-1 (insecure), Node crypto
+    1.89  HMAC-SHA-2-256, Node crypto
+    1.26  HMAC-SHA-2-512, Node crypto
+    1.26  SHA-2-512 prefix-MAC trunc 256, Node crypto
+   24.03  SHAKE/KMAC-128, NPM js-sha3
+   27.06  SHAKE/KMAC-256, NPM js-sha3
+
+4M streaming (4k chunks)
+    1.10  BLAKE2b with key, NPM blake2
+   10.49  BLAKE2b with key, NPM blake2.wasm
+    0.94  BLAKE2b with key, NPM sodium
+    0.96  BLAKE2b with key, NPM sodium-native
+    1.13  BLAKE2bp with key, NPM blake2
+    1.43  BLAKE2s with key, NPM blake2
+   17.36  BLAKE2s with key, NPM blake2.wasm
+    1.49  BLAKE2sp with key, NPM blake2
+    1.25  HMAC-MD5 (insecure), Node crypto
+    0.89  HMAC-SHA-1 (insecure), Node crypto
+    1.90  HMAC-SHA-2-256, Node crypto
+    1.29  HMAC-SHA-2-512, Node crypto
+    1.30  SHA-2-512 prefix-MAC trunc 256, Node crypto
+   23.94  SHAKE/KMAC-128, NPM js-sha3
+   27.04  SHAKE/KMAC-256, NPM js-sha3
+
+------------------------------------------------
+Symmetric Encrypt+Authenticate
+
+128B Encrypt+Sign (excluding IV generation)
+   39.93  AES-128-CBC + HMAC-SHA-2-256 trunc 128, Node crypto
+   39.73  AES-128-CTR + HMAC-SHA-2-256 trunc 128, Node crypto
+   25.80  AES-128-GCM, Node crypto
+   40.78  AES-256-CBC + HMAC-SHA-2-512 trunc 256, Node crypto
+   40.58  AES-256-CTR + HMAC-SHA-2-512 trunc 256, Node crypto
+   21.05  AES-256-GCM, NPM sodium
+   26.03  AES-256-GCM, Node crypto
+   25.95  ChaCha20-Poly1305, NPM chacha-native
+   12.38  XChaCha20-Poly1305, NPM sodium-native
+   17.48  XSalsa20-Poly1305, NPM sodium
+   12.36  XSalsa20-Poly1305, NPM sodium-native
+128B Verify+Decrypt
+   49.47  AES-128-CBC + HMAC-SHA-2-256 trunc 128, Node crypto
+   47.26  AES-128-CTR + HMAC-SHA-2-256 trunc 128, Node crypto
+   22.76  AES-128-GCM, Node crypto
+   51.97  AES-256-CBC + HMAC-SHA-2-512 trunc 256, Node crypto
+   51.81  AES-256-CTR + HMAC-SHA-2-512 trunc 256, Node crypto
+   10.45  AES-256-GCM, NPM sodium
+   25.69  AES-256-GCM, Node crypto
+   17.98  ChaCha20-Poly1305, NPM chacha-native
+    7.05  XChaCha20-Poly1305, NPM sodium-native
+   13.43  XSalsa20-Poly1305, NPM sodium
+    8.43  XSalsa20-Poly1305, NPM sodium-native
+
+4k Encrypt+Sign (excluding IV generation)
+    3.91  AES-128-CBC + HMAC-SHA-2-256 trunc 128, Node crypto
+    3.33  AES-128-CTR + HMAC-SHA-2-256 trunc 128, Node crypto
+    1.23  AES-128-GCM, Node crypto
+    3.56  AES-256-CBC + HMAC-SHA-2-512 trunc 256, Node crypto
+    2.91  AES-256-CTR + HMAC-SHA-2-512 trunc 256, Node crypto
+    1.15  AES-256-GCM, NPM sodium
+    1.19  AES-256-GCM, Node crypto
+    3.80  ChaCha20-Poly1305, NPM chacha-native
+    1.06  XChaCha20-Poly1305, NPM sodium-native
+    1.53  XSalsa20-Poly1305, NPM sodium
+    1.15  XSalsa20-Poly1305, NPM sodium-native
+4k Verify+Decrypt
+    3.64  AES-128-CBC + HMAC-SHA-2-256 trunc 128, Node crypto
+    3.60  AES-128-CTR + HMAC-SHA-2-256 trunc 128, Node crypto
+    1.05  AES-128-GCM, Node crypto
+    3.17  AES-256-CBC + HMAC-SHA-2-512 trunc 256, Node crypto
+    3.14  AES-256-CTR + HMAC-SHA-2-512 trunc 256, Node crypto
+    0.87  AES-256-GCM, NPM sodium
+    1.23  AES-256-GCM, Node crypto
+    3.73  ChaCha20-Poly1305, NPM chacha-native
+    0.93  XChaCha20-Poly1305, NPM sodium-native
+    1.41  XSalsa20-Poly1305, NPM sodium
+    1.07  XSalsa20-Poly1305, NPM sodium-native
+
+128k Encrypt+Sign (excluding IV generation)
+    2.98  AES-128-CBC + HMAC-SHA-2-256 trunc 128, Node crypto
+    2.49  AES-128-CTR + HMAC-SHA-2-256 trunc 128, Node crypto
+    0.69  AES-128-GCM, Node crypto
+    2.60  AES-256-CBC + HMAC-SHA-2-512 trunc 256, Node crypto
+    1.92  AES-256-CTR + HMAC-SHA-2-512 trunc 256, Node crypto
+    0.84  AES-256-GCM, NPM sodium
+    0.69  AES-256-GCM, Node crypto
+    3.55  ChaCha20-Poly1305, NPM chacha-native
+    1.01  XChaCha20-Poly1305, NPM sodium-native
+    1.25  XSalsa20-Poly1305, NPM sodium
+    1.03  XSalsa20-Poly1305, NPM sodium-native
+128k Verify+Decrypt
+    2.46  AES-128-CBC + HMAC-SHA-2-256 trunc 128, Node crypto
+    2.45  AES-128-CTR + HMAC-SHA-2-256 trunc 128, Node crypto
+    0.66  AES-128-GCM, Node crypto
+    1.92  AES-256-CBC + HMAC-SHA-2-512 trunc 256, Node crypto
+    1.92  AES-256-CTR + HMAC-SHA-2-512 trunc 256, Node crypto
+    0.91  AES-256-GCM, NPM sodium
+    0.74  AES-256-GCM, Node crypto
+    3.55  ChaCha20-Poly1305, NPM chacha-native
+    1.00  XChaCha20-Poly1305, NPM sodium-native
+    1.27  XSalsa20-Poly1305, NPM sodium
+    1.01  XSalsa20-Poly1305, NPM sodium-native
+
+4M Encrypt+Sign (excluding IV generation)
+    2.60  AES-128-CBC + HMAC-SHA-2-256 trunc 128, Node crypto
+    2.13  AES-128-CTR + HMAC-SHA-2-256 trunc 128, Node crypto
+    0.54  AES-128-GCM, Node crypto
+    2.23  AES-256-CBC + HMAC-SHA-2-512 trunc 256, Node crypto
+    1.56  AES-256-CTR + HMAC-SHA-2-512 trunc 256, Node crypto
+    0.68  AES-256-GCM, NPM sodium
+    0.50  AES-256-GCM, Node crypto
+    3.18  ChaCha20-Poly1305, NPM chacha-native
+    0.80  XChaCha20-Poly1305, NPM sodium-native
+    0.94  XSalsa20-Poly1305, NPM sodium
+    0.80  XSalsa20-Poly1305, NPM sodium-native
+4M Verify+Decrypt
+    2.14  AES-128-CBC + HMAC-SHA-2-256 trunc 128, Node crypto
+    2.14  AES-128-CTR + HMAC-SHA-2-256 trunc 128, Node crypto
+    0.41  AES-128-GCM, Node crypto
+    1.55  AES-256-CBC + HMAC-SHA-2-512 trunc 256, Node crypto
+    1.55  AES-256-CTR + HMAC-SHA-2-512 trunc 256, Node crypto
+    0.67  AES-256-GCM, NPM sodium
+    0.46  AES-256-GCM, Node crypto
+    3.26  ChaCha20-Poly1305, NPM chacha-native
+    0.70  XChaCha20-Poly1305, NPM sodium-native
+    0.93  XSalsa20-Poly1305, NPM sodium
+    0.83  XSalsa20-Poly1305, NPM sodium-native
+
+------------------------------------------------
+Asymmetric Sign
+
+128B Sign
+  274.40  Ed25519 SHA-512, NPM ed25519
+  273.11  Ed25519 SHA-512, NPM ed25519-supercop
+  148.11  Ed25519 SHA-512, NPM sodium
+  149.31  Ed25519 SHA-512, NPM sodium-native
+128B Verify
+  787.93  Ed25519 SHA-512, NPM ed25519
+  787.98  Ed25519 SHA-512, NPM ed25519-supercop
+  409.38  Ed25519 SHA-512, NPM sodium
+  421.02  Ed25519 SHA-512, NPM sodium-native
+
+4k Sign
+   11.22  Ed25519 SHA-512, NPM ed25519
+   13.00  Ed25519 SHA-512, NPM ed25519-supercop
+    9.18  Ed25519 SHA-512, NPM sodium
+    9.00  Ed25519 SHA-512, NPM sodium-native
+4k Verify
+   26.15  Ed25519 SHA-512, NPM ed25519
+   27.03  Ed25519 SHA-512, NPM ed25519-supercop
+   15.11  Ed25519 SHA-512, NPM sodium
+   15.38  Ed25519 SHA-512, NPM sodium-native
+
+128k Sign
+    3.11  Ed25519 SHA-512, NPM ed25519
+    4.96  Ed25519 SHA-512, NPM ed25519-supercop
+    4.84  Ed25519 SHA-512, NPM sodium
+    4.53  Ed25519 SHA-512, NPM sodium-native
+128k Verify
+    2.03  Ed25519 SHA-512, NPM ed25519
+    3.12  Ed25519 SHA-512, NPM ed25519-supercop
+    2.75  Ed25519 SHA-512, NPM sodium
+    2.61  Ed25519 SHA-512, NPM sodium-native
+
+4M Sign
+    2.86  Ed25519 SHA-512, NPM ed25519
+    4.72  Ed25519 SHA-512, NPM ed25519-supercop
+    4.70  Ed25519 SHA-512, NPM sodium
+    4.38  Ed25519 SHA-512, NPM sodium-native
+4M Verify
+    1.28  Ed25519 SHA-512, NPM ed25519
+    2.38  Ed25519 SHA-512, NPM ed25519-supercop
+    2.36  Ed25519 SHA-512, NPM sodium
+    2.21  Ed25519 SHA-512, NPM sodium-native
+
+------------------------------------------------
+Generate Random Bytes (into existing Buffer)
+
+16 bytes
+   94.31  randomFillSync, Node crypto
+   62.81  randombytes_buf, NPM sodium
+   59.25  randombytes_buf, NPM sodium-native
+
+32 bytes
+   47.69  randomFillSync, Node crypto
+   44.50  randombytes_buf, NPM sodium
+   41.03  randombytes_buf, NPM sodium-native
+
+64 bytes
+   24.48  randomFillSync, Node crypto
+   32.30  randombytes_buf, NPM sodium
+   31.78  randombytes_buf, NPM sodium-native
+
+1024 bytes
+    2.80  randomFillSync, Node crypto
+   21.93  randombytes_buf, NPM sodium
+   21.98  randombytes_buf, NPM sodium-native

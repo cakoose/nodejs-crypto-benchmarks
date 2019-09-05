@@ -21,4 +21,4 @@ $ yarn run bench [--include <regex>] [--exclude <regex>] [--test]
 
 ## Results
 
-TODO
+- MacBook Pro 15" 2017: [Node 8.15.0](results/Node-8.15.0-MacBook-Pro-15-2017.txt), [Node 11.15.0](results/Node-11.15.0-MacBook-Pro-15-2017.txt)
