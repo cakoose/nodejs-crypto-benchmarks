@@ -19,7 +19,7 @@ export const register = async (r: Registry) => {
                 update: (state, data) => { state.update(data); },
                 final: state => state.arrayBuffer(),
             }),
-        }});
+        }, skipBigInputs: true});
     }
     for (const [numBits, shakeImpl, kmacImpl] of [
         [128, jsSha3.shake_128, jsSha3.kmac_128],
@@ -30,11 +30,11 @@ export const register = async (r: Registry) => {
             construct: () => shakeImpl.create(outputNumBits),
             update: (state, data) => { state.update(data); },
             final: state => state.arrayBuffer(),
-        })}});
+        })}, skipBigInputs: true});
         r.macAlgos.push({name: `SHAKE/KMAC-${numBits}`, source: "NPM js-sha3", impl: {streaming: handler => handler({
             construct: () => kmacImpl.create(macKey, outputNumBits, EMPTY_BUFFER),
             update: (state, data) => { state.update(data); },
             final: state => state.arrayBuffer(),
-        })}});
+        })}, skipBigInputs: true});
     }
 };

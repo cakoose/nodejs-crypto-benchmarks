@@ -3,7 +3,7 @@
 /yarn-error.log
 
 # TypeScript build output
-/build
+/dist
 
 # WebStorm project folder
 /.idea

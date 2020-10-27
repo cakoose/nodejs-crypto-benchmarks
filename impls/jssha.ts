@@ -1,4 +1,4 @@
-import jssha = require("jssha");
+import jssha from "jssha";
 
 import {Registry} from "../impl";
 
@@ -14,7 +14,7 @@ export const register = async (r: Registry) => {
         ['SHA-3-512', 'SHA3-512'],
     ]) {
         r.hashAlgos.push({name, source: "NPM jssha", impl: {streaming: handler => handler({
-            construct: () => new jssha(ident, 'ARRAYBUFFER'),
+            construct: () => new jssha(ident as any, 'ARRAYBUFFER'),
             update: (state, data) => { state.update(data.buffer); },
             final: state => state.getHash('ARRAYBUFFER'),
         })}, skipBigInputs: true});  // this module is slow
@@ -25,7 +25,7 @@ export const register = async (r: Registry) => {
         const name = `SHAKE-${numBits}`;
         const ident = `SHAKE${numBits}`;
         r.hashAlgos.push({name, source: 'NPM jssha', impl: {streaming: handler => handler({
-            construct: () => new jssha(ident, 'ARRAYBUFFER'),
+            construct: () => new jssha(ident as any, 'ARRAYBUFFER'),
             update: (state, data) => { state.update(data); },
             final: state => state.getHash('ARRAYBUFFER', {shakeLen: outputNumBits}),
         })}, skipBigInputs: true});  // this module is slow

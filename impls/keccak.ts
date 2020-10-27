@@ -6,7 +6,7 @@ import {Registry} from "../impl";
 export const register = async (r: Registry) => {
     r.packages.add('keccak');
 
-    for (const [construct, implVariant] of [[keccakNative, 'native'], [keccakJs, 'JS']]) {
+    for (const [construct, implVariant, skipBigInputs] of [[keccakNative, 'native', false], [keccakJs, 'JS', true]]) {
         const source = `NPM keccak (${implVariant})`;
         for (const numBits of [256, 512]) {
             const ident = `sha3-${numBits}`;
@@ -14,7 +14,7 @@ export const register = async (r: Registry) => {
                 construct: () => construct(ident),
                 update: (state, data) => { state.update(data); },
                 final: state => state.digest(),
-            })}});
+            })}, skipBigInputs});
         }
         for (const numBits of [128, 256]) {
             const outputNumBits = numBits * 2;
@@ -23,7 +23,7 @@ export const register = async (r: Registry) => {
                 construct: () => construct(ident),
                 update: (state, data) => { state.update(data); },
                 final: state => state.squeeze(outputNumBits),
-            })}});
+            })}, skipBigInputs});
         }
     }
 };

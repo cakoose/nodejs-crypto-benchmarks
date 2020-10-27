@@ -19,11 +19,11 @@ export const register = async (r: Registry) => {
             construct: () => constructor(outputNumBytes),
             update: (state, data) => { state.update(data); },
             final: state => state.final(),
-        })}});
+        })}, skipBigInputs: true});
         r.macAlgos.push({name: `${name} with key`, source: "NPM blake2.wasm", impl: {streaming: handler => handler({
             construct: () => constructor(outputNumBytes, macKey),
             update: (state, data) => { state.update(data); },
             final: state => state.final(),
-        })}});
+        })}, skipBigInputs: true});
     }
 };

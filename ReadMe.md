@@ -22,3 +22,36 @@ $ yarn run bench [--include <regex>] [--exclude <regex>] [--test]
 ## Results
 
 - MacBook Pro 15" 2017: [Node 8.15.0](results/Node-8.15.0-MacBook-Pro-15-2017.txt), [Node 11.15.0](results/Node-11.15.0-MacBook-Pro-15-2017.txt)
+
+## Running benchmarks on GCP or AWS
+
+Create new VM instance: at least 4 vCPUs (usually means 2 physical cores) and the latest Ubuntu LTS.
+
+```
+# SSH into machine.
+
+sudo apt-get update
+sudo apt-get install git libtool automake gcc g++ make
+
+git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+cd ~/.nodenv && src/configure && make -C src
+echo 'eval "$(nodenv init -)"' >> ~/.bashrc
+export PATH="$HOME/.nodenv/bin:$PATH
+
+# Exit and re-SSH to pull in ~/.bashrc updates
+
+mkdir -p "$(nodenv root)"/plugins
+git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
+
+nodenv install 14.14.0
+nodenv global 14.14.0
+npm install -g yarn
+nodenv rehash
+
+git clone https://github.com/cakoose/nodejs-crypto-benchmarks.git
+cd nodejs-crypto-benchmarks
+yarn install
+yarn run build
+yarn run bench --test
+yarn run bench | tee results.txt
+```

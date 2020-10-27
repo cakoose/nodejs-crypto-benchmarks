@@ -17,7 +17,10 @@ export const register = async (r: Registry) => {
     ]) {
         const oneShot = sodiumNative[`crypto_hash_${ident}`];
         const outputNumBytes = sodiumNative[`crypto_hash_${ident}_BYTES`];
-        const construct: () => any = sodiumNative[`crypto_hash_${ident}_instance`];
+        const stateNumBytes = sodiumNative[`crypto_hash_${ident}_STATEBYTES`];
+        const initFn = sodiumNative[`crypto_hash_${ident}_init`];
+        const updateFn = sodiumNative[`crypto_hash_${ident}_update`];
+        const finalFn = sodiumNative[`crypto_hash_${ident}_final`];
         r.hashAlgos.push({name, source, impl: {
             oneShot: input => {
                 const outputBuffer = Buffer.allocUnsafe(outputNumBytes);
@@ -25,11 +28,15 @@ export const register = async (r: Registry) => {
                 return outputBuffer;
             },
             streaming: handler => handler({
-                construct,
-                update: (state, data) => { state.update(data); },
+                construct: () => {
+                    const state = Buffer.allocUnsafe(stateNumBytes);
+                    initFn(state);
+                    return state;
+                },
+                update: (state, data) => { updateFn(state, data); },
                 final: state => {
                     const outputBuffer = Buffer.allocUnsafe(outputNumBytes);
-                    state.final(outputBuffer);
+                    finalFn(state, outputBuffer);
                     return outputBuffer;
                 },
             }),
@@ -40,7 +47,11 @@ export const register = async (r: Registry) => {
     {
         const outputNumBytes = 64;
         const oneShot: (output: Buffer, input: Buffer, key?: Buffer) => void = sodiumNative.crypto_generichash;
-        const construct: (key: Buffer | null, outputNumBytes: number) => any = sodiumNative.crypto_generichash_instance;
+        const construct = (key: Buffer | null, outputNumBytes: number): Buffer => {
+            const state = Buffer.allocUnsafe(sodiumNative.crypto_generichash_STATEBYTES);
+            sodiumNative.crypto_generichash_init(state, key, outputNumBytes);
+            return state;
+        };
         r.hashAlgos.push({name: 'BLAKE2b', source, impl: {
             oneShot: input => {
                 const outputBuffer = Buffer.allocUnsafe(outputNumBytes);
@@ -49,10 +60,10 @@ export const register = async (r: Registry) => {
             },
             streaming: handler => handler({
                 construct: () => construct(null, outputNumBytes),
-                update: (state, data) => { state.update(data); },
+                update: (state, data) => { sodiumNative.crypto_generichash_update(state, data); },
                 final: state => {
                     const outputBuffer = Buffer.allocUnsafe(outputNumBytes);
-                    state.final(outputBuffer);
+                    sodiumNative.crypto_generichash_final(state, outputBuffer);
                     return outputBuffer;
                 },
             }),
@@ -65,10 +76,10 @@ export const register = async (r: Registry) => {
             },
             streaming: handler => handler({
                 construct: () => construct(macKey, outputNumBytes),
-                update: (state, data) => { state.update(data); },
+                update: (state, data) => { sodiumNative.crypto_generichash_update(state, data); },
                 final: state => {
                     const outputBuffer = Buffer.allocUnsafe(outputNumBytes);
-                    state.final(outputBuffer);
+                    sodiumNative.crypto_generichash_final(state, outputBuffer);
                     return outputBuffer;
                 },
             }),
@@ -113,21 +124,28 @@ export const register = async (r: Registry) => {
         }});
     }
 
-    // crypto_aead_xchacha20poly1305
-    {
-        const key = Buffer.alloc(sodiumNative.crypto_aead_xchacha20poly1305_ietf_KEYBYTES);
-        r.symmetricEncryptAndAuthAlgos.push({name: "XChaCha20-Poly1305", source, impl: {
-            ivNumBytes: sodiumNative.crypto_aead_xchacha20poly1305_ietf_NPUBBYTES,
+    // AEADs
+    for (const [ident, name] of [
+        ['chacha20poly1305_ietf', 'ChaCha20-Poly1305'],
+        ['xchacha20poly1305_ietf', 'XChaCha20-Poly1305'],
+    ]) {
+        const key = Buffer.alloc(sodiumNative[`crypto_aead_${ident}_KEYBYTES`]);
+        const authTagNumBytes = sodiumNative[`crypto_aead_${ident}_ABYTES`];
+        const ivNumBytes = sodiumNative[`crypto_aead_${ident}_NPUBBYTES`];
+        const encryptDetachedFn = sodiumNative[`crypto_aead_${ident}_encrypt_detached`];
+        const decryptDetachedFn = sodiumNative[`crypto_aead_${ident}_decrypt_detached`];
+        r.symmetricEncryptAndAuthAlgos.push({name, source, impl: {
+            ivNumBytes,
             encryptAndAuth: (iv, input) => {
-                const authTag = Buffer.allocUnsafe(sodiumNative.crypto_aead_xchacha20poly1305_ietf_ABYTES);
+                const authTag = Buffer.allocUnsafe(authTagNumBytes);
                 const cipherText = Buffer.allocUnsafe(input.length);
-                sodiumNative.crypto_aead_xchacha20poly1305_ietf_encrypt_detached(cipherText, authTag, input, null, null, iv, key);
+                encryptDetachedFn(cipherText, authTag, input, null, null, iv, key);
                 return [cipherText, authTag];
             },
             verifyDecrypt: (iv, [cipherText, authTag]) => {
                 const plainText = Buffer.allocUnsafe(cipherText.length);
                 try {
-                    sodiumNative.crypto_aead_xchacha20poly1305_ietf_decrypt_detached(plainText, null, cipherText, authTag, null, iv, key);
+                    decryptDetachedFn(plainText, null, cipherText, authTag, null, iv, key);
                 } catch (err) {
                     return null;
                 }

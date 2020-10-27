@@ -1,6 +1,6 @@
-'use strict';
+require('source-map-support').install();
 
-import * as assert from 'assert';
+import assert from 'assert';
 import * as Benchmark from 'benchmark';
 import * as os from 'os';
 import * as argparse from 'argparse';
@@ -9,8 +9,8 @@ import {Algo, HashImpl, Registry} from './impl';
 
 import {register as registerBlake2} from './impls/blake2';
 import {register as registerBlake2Wasm} from './impls/blake2.wasm';
+import {register as registerBlake3} from './impls/blake3';
 import {register as registerChachaNative} from './impls/chacha-native';
-import {register as registerEd25519} from './impls/ed25519';
 import {register as registerEd25519Supercop} from './impls/ed25519-supercop';
 import {register as registerJsSha3} from './impls/js-sha3';
 import {register as registerJssha} from './impls/jssha';
@@ -49,18 +49,18 @@ async function mainAsync(progName: string, args: Array<string>) {
         macKey: Buffer.alloc(32),
     };
 
-    await registerNodeCrypto(r);
-    await registerChachaNative(r);
     await registerBlake2(r);
+    await registerBlake2Wasm(r);
+    await registerBlake3(r);
+    await registerChachaNative(r);
+    await registerEd25519Supercop(r);
+    await registerJsSha3(r);
+    await registerJssha(r);
+    await registerKeccak(r);
+    await registerNodeCrypto(r);
+    await registerSha3(r);
     await registerSodium(r);
     await registerSodiumNative(r);
-    await registerBlake2Wasm(r);
-    await registerKeccak(r);
-    await registerJssha(r);
-    await registerJsSha3(r);
-    await registerSha3(r);
-    await registerEd25519(r);
-    await registerEd25519Supercop(r);
 
     r.hashAlgos.sort(compareAlgos);
     r.macAlgos.sort(compareAlgos);
@@ -296,63 +296,37 @@ function compareStrings(a: string, b: string): -1 | 0 | 1 {
     }
 }
 
-const NS_PAD = '        ';
+const createSuiteReportMean = createSuiteHelper(true, targetStats => targetStats.sample.mean);
+const createSuite = createSuiteHelper(false, targetStats => Math.min(...targetStats.sample));
 
-function leftPad(s: string) {
-    if (s.length > NS_PAD.length) {
-        return s;
+function createSuiteHelper(includeRme: boolean, getSeconds: (targetStats: any) => number) {
+    return (test: boolean, numBytes: number, name: string) => {
+        if (test) {
+            return new TestSuite(name);
+        }
+        return new Benchmark.Suite(name, {
+            onStart() {
+                console.log(name);
+            },
+            onCycle(evt: Benchmark.Event) {
+                // TODO: Show deviation?
+                const target = (evt.target as any);  // TODO: Improve NPM package '@types/benchmark' and remove 'any'
+                // Using the minimum time because that's probably what we care about in these
+                // allocation-free pure-CPU microbenchmarks.  TODO: Is that an ok thing to do?
+                const seconds = getSeconds(target.stats);
+                const ns = Math.round(seconds * 1_000_000_000);
+                const nsPerByte = ns / numBytes;
+                const rmeString = includeRme ? ` ±${target.stats.rme.toFixed(0).padStart(2)}%` : '';
+                console.log(`${nsPerByte.toFixed(2).padStart(8)}${rmeString}  ${target.name}`);
+            },
+            onError(evt: Benchmark.Event) {
+                throw (evt.target as any).error;
+            },
+            onAbort() {
+                throw new Error('aborted benchmark suite');
+            },
+        });
     }
-    return (NS_PAD + s).slice(-NS_PAD.length);
-}
-
-function createSuiteReportMean(test: boolean, numBytes: number, name: string) {
-    if (test) {
-        return new TestSuite(name);
-    }
-    return new Benchmark.Suite(name, {
-        onStart() {
-            console.log(name);
-        },
-        onCycle(evt: Benchmark.Event) {
-            const target = (evt.target as any);
-            const ns = Math.round(target.stats.mean * 1_000_000_000);
-            const nsPerByte = ns / numBytes;
-            console.log(`${leftPad(nsPerByte.toFixed(2))}  ${target.name}`);
-        },
-        onError(evt: Benchmark.Event) {
-            throw (evt.target as any).error;
-        },
-        onAbort() {
-            throw new Error('aborted benchmark suite');
-        },
-    });
-}
-
-function createSuite(test: boolean, numBytes: number, name: string) {
-    if (test) {
-        return new TestSuite(name);
-    }
-    return new Benchmark.Suite(name, {
-        onStart() {
-            console.log(name);
-        },
-        onCycle(evt: Benchmark.Event) {
-            // TODO: Show deviation?
-            const target = (evt.target as any);  // TODO: Improve NPM package '@types/benchmark' and remove 'any'
-            // Using the minimum time because that's probably what we care about in these
-            // allocation-free pure-CPU microbenchmarks.  TODO: Is that an ok thing to do?
-            const minSeconds = Math.min(...target.stats.sample);
-            const minNs = Math.round(minSeconds * 1_000_000_000);
-            const nsPerByte = minNs / numBytes;
-            console.log(`${leftPad(nsPerByte.toFixed(2))}  ${target.name}`);
-        },
-        onError(evt: Benchmark.Event) {
-            throw (evt.target as any).error;
-        },
-        onAbort() {
-            throw new Error('aborted benchmark suite');
-        },
-    });
 }
 
 type Filter = {
