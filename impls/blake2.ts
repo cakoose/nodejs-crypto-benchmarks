@@ -1,8 +1,8 @@
-const blake2 = require('blake2');
+import blake2 from 'blake2';
 
 import {Registry} from "../impl";
 
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     r.packages.add('blake2');
 
     const macKey = r.macKey;

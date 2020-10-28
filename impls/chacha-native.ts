@@ -1,11 +1,11 @@
-import assert = require('assert');
-const chachaNative = require('chacha-native');
+import assert from 'assert';
+import chachaNative from 'chacha-native';
 
 import {Registry} from "../impl";
 
 const EMPTY_BUFFER = Buffer.alloc(0);
 
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     r.packages.add('chacha-native');
 
     const key = Buffer.alloc(32);

@@ -1,10 +1,10 @@
-const sodiumNative = require('sodium-native');
+import sodiumNative from 'sodium-native';
 
 import {Registry} from "../impl";
 
 // TODO: sodium-native's API lets us reuse state buffers and output buffers.  Maybe include
 // a variant where we test that use case?
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     const source = "NPM sodium-native";
     r.packages.add('sodium-native');
 

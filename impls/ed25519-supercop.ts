@@ -1,8 +1,8 @@
-const ed25519Supercop = require('ed25519-supercop');
+import ed25519Supercop from 'ed25519-supercop';
 
 import {Registry} from "../impl";
 
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     r.packages.add('ed25519-supercop');
 
     const {secretKey, publicKey} = ed25519Supercop.createKeyPair(Buffer.alloc(32));

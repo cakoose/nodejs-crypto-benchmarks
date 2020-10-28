@@ -1,10 +1,10 @@
-import jsSha3 = require('js-sha3');
+import jsSha3 from 'js-sha3';
 
 import {Registry} from "../impl";
 
 const EMPTY_BUFFER = Buffer.alloc(0);
 
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     r.packages.add('js-sha3');
 
     const macKey = r.macKey;

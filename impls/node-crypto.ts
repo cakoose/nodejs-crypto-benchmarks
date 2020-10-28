@@ -1,16 +1,13 @@
 import assert from 'assert';
 import * as crypto from 'crypto';
-import * as process from 'process';
 
 import {Registry} from "../impl";
 
-const EMPTY_BUFFER = Buffer.alloc(0);
 const AEAD_AUTH_FAILED_EXCEPTION_MESSAGE = 'Unsupported state or unable to authenticate data';
 
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     const source = 'Node crypto';
     const macKey = r.macKey;
-    const nodeVersion = process.version;
 
     // createHash, createHmac
     for (const [name, ident] of [

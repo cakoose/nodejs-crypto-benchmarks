@@ -1,8 +1,8 @@
-const sodium = require('sodium').api;
+import {api as sodium} from 'sodium';
 
 import {Registry} from "../impl";
 
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     const source = "NPM sodium";
     r.packages.add('sodium');
     const macKey = r.macKey;

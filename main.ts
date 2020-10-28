@@ -1,4 +1,4 @@
-require('source-map-support').install();
+require('source-map-support').install();  // eslint-disable-line @typescript-eslint/no-var-requires
 
 import assert from 'assert';
 import * as Benchmark from 'benchmark';
@@ -273,7 +273,7 @@ function printSystemInformation(packages: Iterable<string>) {
     console.log(`OS       ${os.platform()}, ${os.release()}`);
     console.log(`NPM `);
     for (const pkg of packages) {
-        const version = require(`${pkg}/package.json`).version;
+        const version = require(`${pkg}/package.json`).version;  // eslint-disable-line @typescript-eslint/no-var-requires
         console.log(`    ${pkg} ${version}`);
     }
 }
@@ -296,7 +296,7 @@ function compareStrings(a: string, b: string): -1 | 0 | 1 {
     }
 }
 
-const createSuiteReportMean = createSuiteHelper(true, targetStats => targetStats.sample.mean);
+const createSuiteReportMean = createSuiteHelper(true, targetStats => targetStats.mean);
 const createSuite = createSuiteHelper(false, targetStats => Math.min(...targetStats.sample));
 
 function createSuiteHelper(includeRme: boolean, getSeconds: (targetStats: any) => number) {

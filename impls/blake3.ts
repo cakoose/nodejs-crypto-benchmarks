@@ -1,8 +1,8 @@
-const blake3 = require('blake3');
+import blake3 from 'blake3';
 
 import {Registry} from "../impl";
 
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     r.packages.add('blake3');
 
     r.hashAlgos.push({name: 'BLAKE3', source: "NPM blake3", impl: {streaming: handler => handler({

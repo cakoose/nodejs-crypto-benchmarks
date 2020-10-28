@@ -1,9 +1,9 @@
-const keccakJs = require('keccak/js');
-const keccakNative = require('keccak/bindings');
+import keccakJs from 'keccak/js';
+import keccakNative from 'keccak/bindings';
 
 import {Registry} from "../impl";
 
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     r.packages.add('keccak');
 
     for (const [construct, implVariant, skipBigInputs] of [[keccakNative, 'native', false], [keccakJs, 'JS', true]]) {

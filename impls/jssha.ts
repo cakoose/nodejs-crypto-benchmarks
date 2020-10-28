@@ -2,7 +2,7 @@ import jssha from "jssha";
 
 import {Registry} from "../impl";
 
-export const register = async (r: Registry) => {
+export const register = async (r: Registry): Promise<void> => {
     r.packages.add('jssha');
 
     // NPM jssha
