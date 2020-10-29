@@ -31,7 +31,7 @@ Create new VM instance: at least 4 vCPUs (usually means 2 physical cores) and th
 # SSH into machine.
 
 sudo apt-get update
-sudo apt-get install git libtool automake gcc g++ make
+sudo apt-get install git libtool automake gcc g++ make tmux
 
 git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 cd ~/.nodenv && src/configure && make -C src
