@@ -21,7 +21,11 @@ $ yarn run bench [--include <regex>] [--exclude <regex>] [--test]
 
 ## Results
 
-- MacBook Pro 15" 2017: [Node 8.15.0](results/Node-8.15.0-MacBook-Pro-15-2017.txt), [Node 11.15.0](results/Node-11.15.0-MacBook-Pro-15-2017.txt)
+2020-10-20:
+- GCP e2-standard-4: [Node 14.14.0](results/2020-10-29-Node-14.14.0-GCP-e2-standard-4.txt).
+
+2019-09-04:
+- MacBook Pro 15" 2017: [Node 8.15.0](results/2019-09-04-Node-8.15.0-MacBook-Pro-15-2017.txt), [Node 11.15.0](results/2019-09-04-Node-11.15.0-MacBook-Pro-15-2017.txt).
 
 ## Running benchmarks on GCP or AWS
 
