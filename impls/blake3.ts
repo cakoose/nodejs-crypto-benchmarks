@@ -1,4 +1,4 @@
-import blake3 from 'blake3';
+import * as blake3 from 'blake3';
 
 import {Registry} from "../impl";
 
