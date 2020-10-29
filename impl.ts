@@ -19,7 +19,7 @@ export type AsymmetricSignImpl = {
 
 export type SymmetricEncryptAndAuthImpl = {
     ivNumBytes: number,
-    encryptAndAuth: (iv: Buffer, plainText: Buffer) => Array<Buffer>,  /// cipherText, authTag, etc
+    encryptAndAuth: (iv: Buffer, plainText: Buffer) => Array<Buffer>, // cipherText, authTag, etc
     verifyDecrypt: (iv: Buffer, chunks: Array<Buffer>) => Array<Buffer> | null,
 };
 

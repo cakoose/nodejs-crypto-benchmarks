@@ -1,4 +1,4 @@
-require('source-map-support').install();  // eslint-disable-line @typescript-eslint/no-var-requires
+require('source-map-support').install(); // eslint-disable-line @typescript-eslint/no-var-requires
 
 import assert from 'assert';
 import * as Benchmark from 'benchmark';
@@ -241,7 +241,7 @@ function makeOneShotInputs(): Array<[string, number, Buffer]> {
 function makeStreamingInputs(): Array<[string, number, Array<Buffer>]> {
     return [
         ['4M streaming (4k chunks)', 4 * 1024 * 1024, Array(1024).fill(createBufferWithOwnArrayBuffer(4 * 1024))],
-    ]
+    ];
 }
 
 function createBufferWithOwnArrayBuffer(numBytes: number): Buffer {
@@ -273,7 +273,7 @@ function printSystemInformation(packages: Iterable<string>) {
     console.log(`OS       ${os.platform()}, ${os.release()}`);
     console.log(`NPM `);
     for (const pkg of packages) {
-        const version = require(`${pkg}/package.json`).version;  // eslint-disable-line @typescript-eslint/no-var-requires
+        const version = require(`${pkg}/package.json`).version; // eslint-disable-line @typescript-eslint/no-var-requires
         console.log(`    ${pkg} ${version}`);
     }
 }
@@ -310,7 +310,7 @@ function createSuiteHelper(includeRme: boolean, getSeconds: (targetStats: any) =
             },
             onCycle(evt: Benchmark.Event) {
                 // TODO: Show deviation?
-                const target = (evt.target as any);  // TODO: Improve NPM package '@types/benchmark' and remove 'any'
+                const target = (evt.target as any); // TODO: Improve NPM package '@types/benchmark' and remove 'any'
                 // Using the minimum time because that's probably what we care about in these
                 // allocation-free pure-CPU microbenchmarks.  TODO: Is that an ok thing to do?
                 const seconds = getSeconds(target.stats);
@@ -326,7 +326,7 @@ function createSuiteHelper(includeRme: boolean, getSeconds: (targetStats: any) =
                 throw new Error('aborted benchmark suite');
             },
         });
-    }
+    };
 }
 
 type Filter = {

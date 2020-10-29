@@ -17,7 +17,7 @@ export const register = async (r: Registry): Promise<void> => {
                 cipher.setAAD(EMPTY_BUFFER);
                 const cipherText = cipher.update(input);
                 const cipherTextFinal = cipher.final();
-                assert(cipherTextFinal.length === 0);  // If not empty, we would have to append to 'cipherText'.
+                assert(cipherTextFinal.length === 0); // If not empty, we would have to append to 'cipherText'.
                 const authTag = cipher.getAuthTag();
                 return [cipherText, authTag];
             },
