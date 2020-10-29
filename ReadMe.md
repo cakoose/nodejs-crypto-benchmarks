@@ -29,10 +29,12 @@ $ yarn run bench [--include <regex>] [--exclude <regex>] [--test]
 
 ## Running benchmarks on GCP or AWS
 
-Create new VM instance: at least 4 vCPUs (usually means 2 physical cores) and the latest Ubuntu LTS.
+Create new VM instance:
+- Two physical cores (which typically corresponds to 4 "vCPUs")
+- The latest Ubuntu LTS.
 
 ```
-# SSH into machine.
+# SSH to machine.
 
 sudo apt-get update
 sudo apt-get install git libtool automake gcc g++ make tmux vim

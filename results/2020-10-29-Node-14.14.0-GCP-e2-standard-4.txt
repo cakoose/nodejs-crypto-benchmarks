@@ -1,5 +1,3 @@
-yarn run v1.22.10
-$ node dist/main.js
 CPU      4x Intel(R) Xeon(R) CPU @ 2.20GHz
 Node     14.14.0
 V8       8.4.371.19-node.17
@@ -495,5 +493,3 @@ Generate Random Bytes (into existing Buffer)
     4.81 ± 0%  randomFillSync, Node crypto
     9.58 ± 0%  randombytes_buf, NPM sodium
     9.48 ± 0%  randombytes_buf, NPM sodium-native
-
-Done in 2210.12s.

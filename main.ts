@@ -337,7 +337,7 @@ type Filter = {
 function parseArgs(progName: string, args: Array<string>) {
     const parser = new argparse.ArgumentParser({
         prog: progName,
-        addHelp: true,
+        add_help: true,
         description: 'nodejs crypto benchmark',
     });
     const filters: Array<Filter> = [];
@@ -358,22 +358,22 @@ function parseArgs(progName: string, args: Array<string>) {
         return FilterAction;
     };
 
-    parser.addArgument('--include', {
+    parser.add_argument('--include', {
         nargs: '*',
         action: (makeFilterAction(true) as any),
         help: "Regex of algorithms to include",
     });
-    parser.addArgument('--exclude', {
+    parser.add_argument('--exclude', {
         nargs: '*',
         action: (makeFilterAction(false) as any),
         help: "Regex of algorithms to exclude",
     });
-    parser.addArgument('--test', {
-        defaultValue: false,
+    parser.add_argument('--test', {
+        default: false,
         action: 'storeTrue',
         help: "Just test that the benchmarks work",
     });
-    const parsed = parser.parseArgs(args);
+    const parsed = parser.parse_args(args);
     return {
         filters,
         test: parsed.test,
