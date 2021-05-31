@@ -12,7 +12,7 @@ export const register = async (r: Registry): Promise<void> => {
         },
         final: state => state.digest(),
     })}});
-    r.macAlgos.push({name: `BLAKE3 with key`, source: "NPM blake2", impl: {streaming: handler => handler({
+    r.macAlgos.push({name: `BLAKE3 with key`, source: "NPM blake3", impl: {streaming: handler => handler({
         construct: () => blake3.createKeyed(r.macKey),
         update: (state, data) => {
             state.update(data);
