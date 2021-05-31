@@ -5,7 +5,7 @@ import {Registry} from "../impl";
 export const register = async (r: Registry): Promise<void> => {
     r.packages.add('blake2.wasm');
 
-    await new Promise(resolve => {
+    await new Promise<void>(resolve => {
         blake2Wasm.ready(() => { resolve(); });
     });
 
