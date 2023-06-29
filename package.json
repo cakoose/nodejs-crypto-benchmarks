@@ -21,7 +21,7 @@
         "js-sha3": "0.8.0",
         "jssha": "3.2.0",
         "keccak": "3.0.1",
-        "semver": "7.3.5",
+        "semver": "7.5.2",
         "sha3": "2.1.4",
         "sodium": "3.0.2",
         "sodium-native": "3.2.1"
