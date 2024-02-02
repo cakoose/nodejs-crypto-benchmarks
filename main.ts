@@ -9,7 +9,6 @@ import {Algo, HashImpl, Registry} from './impl';
 
 import {register as registerBlake2} from './impls/blake2';
 import {register as registerBlake2Wasm} from './impls/blake2.wasm';
-import {register as registerBlake3} from './impls/blake3';
 import {register as registerChachaNative} from './impls/chacha-native';
 import {register as registerEd25519Supercop} from './impls/ed25519-supercop';
 import {register as registerJsSha3} from './impls/js-sha3';
@@ -17,7 +16,6 @@ import {register as registerJssha} from './impls/jssha';
 import {register as registerKeccak} from './impls/keccak';
 import {register as registerNodeCrypto} from './impls/node-crypto';
 import {register as registerSha3} from './impls/sha3';
-import {register as registerSodium} from './impls/sodium';
 import {register as registerSodiumNative} from './impls/sodium-native';
 
 const BIG_INPUT_THRESHOLD = 4 * 1024;
@@ -51,7 +49,6 @@ async function mainAsync(progName: string, args: Array<string>) {
 
     await registerBlake2(r);
     await registerBlake2Wasm(r);
-    await registerBlake3(r);
     await registerChachaNative(r);
     await registerEd25519Supercop(r);
     await registerJsSha3(r);
@@ -59,7 +56,6 @@ async function mainAsync(progName: string, args: Array<string>) {
     await registerKeccak(r);
     await registerNodeCrypto(r);
     await registerSha3(r);
-    await registerSodium(r);
     await registerSodiumNative(r);
 
     r.hashAlgos.sort(compareAlgos);

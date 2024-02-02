@@ -79,7 +79,7 @@ export const register = async (r: Registry): Promise<void> => {
                 try {
                     plainTextFinal = decipher.final();
                 } catch (err) {
-                    if (err.message === AEAD_AUTH_FAILED_EXCEPTION_MESSAGE) return null;
+                    if ((err as any).message === AEAD_AUTH_FAILED_EXCEPTION_MESSAGE) return null;
                     throw err;
                 }
                 assert(plainTextFinal.length === 0);
