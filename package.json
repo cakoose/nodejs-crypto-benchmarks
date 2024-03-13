@@ -15,7 +15,6 @@
         "benchmark": "2.1.4",
         "blake2": "5.0.0",
         "blake2.wasm": "0.1.0",
-        "chacha-native": "2.0.3",
         "ed25519-supercop": "2.0.1",
         "hash-wasm": "^4.11.0",
         "js-sha3": "0.9.3",
