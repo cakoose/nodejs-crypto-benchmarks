@@ -13,7 +13,7 @@ export const register = async (r: Registry): Promise<void> => {
     r.packages.add('hash-wasm');
 
     const hashImpls: Array<[name: string, hasher: IHasher]> = [
-        ['SHA3', await hashWasm.createSHA3()],
+        ['SHA-3-512', await hashWasm.createSHA3()],
         ['BLAKE2b', await hashWasm.createBLAKE2b()],
         ['BLAKE2s', await hashWasm.createBLAKE2s()],
         ['BLAKE3', await hashWasm.createBLAKE3()],
