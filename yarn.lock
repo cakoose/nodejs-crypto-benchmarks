@@ -56,21 +56,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.56.0":
-  version: 8.56.0
-  resolution: "@eslint/js@npm:8.56.0"
-  checksum: 10c0/60b3a1cf240e2479cec9742424224465dc50e46d781da1b7f5ef240501b2d1202c225bd456207faac4b34a64f4765833345bc4ddffd00395e1db40fa8c426f5a
+"@eslint/js@npm:8.57.1":
+  version: 8.57.1
+  resolution: "@eslint/js@npm:8.57.1"
+  checksum: 10c0/b489c474a3b5b54381c62e82b3f7f65f4b8a5eaaed126546520bf2fede5532a8ed53212919fed1e9048dcf7f37167c8561d58d0ba4492a4244004e7793805223
   languageName: node
   linkType: hard
 
-"@humanwhocodes/config-array@npm:^0.11.13":
-  version: 0.11.14
-  resolution: "@humanwhocodes/config-array@npm:0.11.14"
+"@humanwhocodes/config-array@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "@humanwhocodes/config-array@npm:0.13.0"
   dependencies:
-    "@humanwhocodes/object-schema": "npm:^2.0.2"
+    "@humanwhocodes/object-schema": "npm:^2.0.3"
     debug: "npm:^4.3.1"
     minimatch: "npm:^3.0.5"
-  checksum: 10c0/66f725b4ee5fdd8322c737cb5013e19fac72d4d69c8bf4b7feb192fcb83442b035b92186f8e9497c220e58b2d51a080f28a73f7899bc1ab288c3be172c467541
+  checksum: 10c0/205c99e756b759f92e1f44a3dc6292b37db199beacba8f26c2165d4051fe73a4ae52fdcfd08ffa93e7e5cb63da7c88648f0e84e197d154bbbbe137b2e0dd332e
   languageName: node
   linkType: hard
 
@@ -81,10 +81,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/object-schema@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "@humanwhocodes/object-schema@npm:2.0.2"
-  checksum: 10c0/6fd83dc320231d71c4541d0244051df61f301817e9f9da9fd4cb7e44ec8aacbde5958c1665b0c419401ab935114fdf532a6ad5d4e7294b1af2f347dd91a6983f
+"@humanwhocodes/object-schema@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@humanwhocodes/object-schema@npm:2.0.3"
+  checksum: 10c0/80520eabbfc2d32fe195a93557cef50dfe8c8905de447f022675aaf66abc33ae54098f5ea78548d925aa671cd4ab7c7daa5ad704fe42358c9b5e7db60f80696c
   languageName: node
   linkType: hard
 
@@ -210,10 +210,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/argparse@npm:2.0.14":
-  version: 2.0.14
-  resolution: "@types/argparse@npm:2.0.14"
-  checksum: 10c0/6f613383ecba72ef8d333851bdd0840e7fdb15f989256d0d9ad054c6307c4f2013be34a09fba8a8ea328f191b0cd11fea2864bbecbd44695a7bae1041e64fba8
+"@types/argparse@npm:2.0.17":
+  version: 2.0.17
+  resolution: "@types/argparse@npm:2.0.17"
+  checksum: 10c0/cd22c329864d9f6df4740fc5c557290b7629385b0e51c1b3d038bbc22aa0be4ed9507ae421fc0dde63c1f9e71241c0bce4c9a1668702513c568ae176dfec780c
   languageName: node
   linkType: hard
 
@@ -258,7 +258,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semver@npm:7.5.6, @types/semver@npm:^7.5.0":
+"@types/semver@npm:7.7.1":
+  version: 7.7.1
+  resolution: "@types/semver@npm:7.7.1"
+  checksum: 10c0/c938aef3bf79a73f0f3f6037c16e2e759ff40c54122ddf0b2583703393d8d3127130823facb880e694caa324eb6845628186aac1997ee8b31dc2d18fafe26268
+  languageName: node
+  linkType: hard
+
+"@types/semver@npm:^7.5.0":
   version: 7.5.6
   resolution: "@types/semver@npm:7.5.6"
   checksum: 10c0/196dc32db5f68cbcde2e6a42bb4aa5cbb100fa2b7bd9c8c82faaaf3e03fbe063e205dbb4f03c7cdf53da2edb70a0d34c9f2e601b54281b377eb8dc1743226acd
@@ -516,6 +523,42 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bare-addon-resolve@npm:^1.3.0":
+  version: 1.9.6
+  resolution: "bare-addon-resolve@npm:1.9.6"
+  dependencies:
+    bare-module-resolve: "npm:^1.10.0"
+    bare-semver: "npm:^1.0.0"
+  peerDependencies:
+    bare-url: "*"
+  peerDependenciesMeta:
+    bare-url:
+      optional: true
+  checksum: 10c0/e937e8a850d25856562010e66e17e1d007733bd848a17503eba0b7169d1a4a2f42994f9351735fc8f2d17e2f0db7fa3cd932de50cd56ff1ba38607b8c26fa6e9
+  languageName: node
+  linkType: hard
+
+"bare-module-resolve@npm:^1.10.0":
+  version: 1.12.0
+  resolution: "bare-module-resolve@npm:1.12.0"
+  dependencies:
+    bare-semver: "npm:^1.0.0"
+  peerDependencies:
+    bare-url: "*"
+  peerDependenciesMeta:
+    bare-url:
+      optional: true
+  checksum: 10c0/e7d548fe56572c19906ee9928b5a46a1ae757d210602268a3bc8475199046e6629b1ee8874b062eafa74f1dbc9a6ec8f902dc992725eb6dc44f62f076948e1c0
+  languageName: node
+  linkType: hard
+
+"bare-semver@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "bare-semver@npm:1.0.2"
+  checksum: 10c0/324a9906685ec458233b791417fe7c86450965fca3b03bb819716b00433739d431423c9d2d0480bfbb0b556f08948dd40459e2def4e0c1333acec72b352de5a8
+  languageName: node
+  linkType: hard
+
 "base64-js@npm:^1.3.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
@@ -691,11 +734,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "crypto-benchmarks@workspace:."
   dependencies:
-    "@types/argparse": "npm:2.0.14"
+    "@types/argparse": "npm:2.0.17"
     "@types/benchmark": "npm:2.1.5"
     "@types/ed25519": "npm:0.0.3"
     "@types/node": "npm:20.19.25"
-    "@types/semver": "npm:7.5.6"
+    "@types/semver": "npm:7.7.1"
     "@typescript-eslint/eslint-plugin": "npm:6.21.0"
     "@typescript-eslint/parser": "npm:6.21.0"
     argparse: "npm:2.0.1"
@@ -703,15 +746,15 @@ __metadata:
     blake2: "npm:5.0.0"
     blake2.wasm: "npm:0.1.0"
     ed25519-supercop: "npm:2.0.1"
-    eslint: "npm:8.56.0"
-    hash-wasm: "npm:^4.11.0"
+    eslint: "npm:8.57.1"
+    hash-wasm: "npm:4.12.0"
     js-sha3: "npm:0.9.3"
     jssha: "npm:3.3.1"
     keccak: "npm:3.0.4"
-    microtime: "npm:^3.1.1"
-    semver: "npm:7.5.4"
+    microtime: "npm:3.1.1"
+    semver: "npm:7.7.3"
     sha3: "npm:2.1.4"
-    sodium-native: "npm:4.0.6"
+    sodium-native: "npm:5.0.10"
     source-map-support: "npm:0.5.21"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.9.3"
@@ -841,15 +884,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.56.0":
-  version: 8.56.0
-  resolution: "eslint@npm:8.56.0"
+"eslint@npm:8.57.1":
+  version: 8.57.1
+  resolution: "eslint@npm:8.57.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.6.1"
     "@eslint/eslintrc": "npm:^2.1.4"
-    "@eslint/js": "npm:8.56.0"
-    "@humanwhocodes/config-array": "npm:^0.11.13"
+    "@eslint/js": "npm:8.57.1"
+    "@humanwhocodes/config-array": "npm:^0.13.0"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
     "@nodelib/fs.walk": "npm:^1.2.8"
     "@ungap/structured-clone": "npm:^1.2.0"
@@ -885,7 +928,7 @@ __metadata:
     text-table: "npm:^0.2.0"
   bin:
     eslint: bin/eslint.js
-  checksum: 10c0/2be598f7da1339d045ad933ffd3d4742bee610515cd2b0d9a2b8b729395a01d4e913552fff555b559fccaefd89d7b37632825789d1b06470608737ae69ab43fb
+  checksum: 10c0/1fd31533086c1b72f86770a4d9d7058ee8b4643fd1cfd10c7aac1ecb8725698e88352a87805cf4b2ce890aa35947df4b4da9655fb7fdfa60dbb448a43f6ebcf1
   languageName: node
   linkType: hard
 
@@ -1154,10 +1197,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hash-wasm@npm:^4.11.0":
-  version: 4.11.0
-  resolution: "hash-wasm@npm:4.11.0"
-  checksum: 10c0/ddf87ed2319fc7c9ba745fffccbf008a80e931b5913b4eef42b038efc10705e48458e2bf528601f78142774108dd7b151341721ce05aca9c431179fe5cefbb72
+"hash-wasm@npm:4.12.0":
+  version: 4.12.0
+  resolution: "hash-wasm@npm:4.12.0"
+  checksum: 10c0/6cb95055319810b6f673de755289960683a9831807690795f0e8918b2fd7e6ae5b82a9dc47cbace171cf2814b412ef68c315a0ead0b4d96bd3e56a05e4bde136
   languageName: node
   linkType: hard
 
@@ -1489,7 +1532,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"microtime@npm:^3.1.1":
+"microtime@npm:3.1.1":
   version: 3.1.1
   resolution: "microtime@npm:3.1.1"
   dependencies:
@@ -1868,6 +1911,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"require-addon@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "require-addon@npm:1.2.0"
+  dependencies:
+    bare-addon-resolve: "npm:^1.3.0"
+  checksum: 10c0/70581e83fa58f2b3599ae42a19b451ef764a208ee911a2676bd83f161b5aac529408a37f9485a1c55062813ee79f004244a4b769143f8ffd142884b8dd5e6171
+  languageName: node
+  linkType: hard
+
 "resolve-from@npm:^4.0.0":
   version: 4.0.0
   resolution: "resolve-from@npm:4.0.0"
@@ -1923,7 +1975,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.5.4, semver@npm:^7.3.5, semver@npm:^7.5.4":
+"semver@npm:7.7.3":
+  version: 7.7.3
+  resolution: "semver@npm:7.7.3"
+  bin:
+    semver: bin/semver.js
+  checksum: 10c0/4afe5c986567db82f44c8c6faef8fe9df2a9b1d98098fc1721f57c696c4c21cebd572f297fc21002f81889492345b8470473bc6f4aff5fb032a6ea59ea2bc45e
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.3.5, semver@npm:^7.5.4":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
@@ -2001,13 +2062,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sodium-native@npm:4.0.6":
-  version: 4.0.6
-  resolution: "sodium-native@npm:4.0.6"
+"sodium-native@npm:5.0.10":
+  version: 5.0.10
+  resolution: "sodium-native@npm:5.0.10"
   dependencies:
-    node-gyp: "npm:latest"
-    node-gyp-build: "npm:^4.6.0"
-  checksum: 10c0/6ca4de2f934bdc5408460363afb7c17777a20f626653701c2f87bda34f601498cf4fa82156f03bbb58f1ce5d95d9194c74c47b882875588f9f36c44abc9ff325
+    require-addon: "npm:^1.1.0"
+    which-runtime: "npm:^1.2.1"
+  checksum: 10c0/112bec4dc698df91b63270648c23c8a2900d94060e4b435f2331335a604e9965d627c2fbde3d613b20adb3c4d08c6625311adf9355582a01c48149cbc6973615
   languageName: node
   linkType: hard
 
@@ -2267,6 +2328,13 @@ __metadata:
   version: 3.0.1
   resolution: "v8-compile-cache-lib@npm:3.0.1"
   checksum: 10c0/bdc36fb8095d3b41df197f5fb6f11e3a26adf4059df3213e3baa93810d8f0cc76f9a74aaefc18b73e91fe7e19154ed6f134eda6fded2e0f1c8d2272ed2d2d391
+  languageName: node
+  linkType: hard
+
+"which-runtime@npm:^1.2.1":
+  version: 1.3.2
+  resolution: "which-runtime@npm:1.3.2"
+  checksum: 10c0/e7cec7a6a61d5e9df6501ec32df7fb74653a4ad7af3a048b85c98aa0e04d0d30f591f1b2c505f2e38025659c9b9282c9200b368a76f10343d17fb329cd361149
   languageName: node
   linkType: hard
 
