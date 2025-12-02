@@ -1,12 +1,12 @@
 export type HashImpl = {
-    oneShot?: (input: Buffer) => Buffer | ArrayBuffer,
+    oneShot?: (input: Buffer) => Buffer | ArrayBuffer | Uint8Array,
     streaming: (handler: StreamingHashHandler) => void,
 };
 
 export type StreamingHashImpl<State> = {
     construct: () => State,
     update: (state: State, data: Buffer) => void,
-    final: (state: State) => Buffer | ArrayBuffer,
+    final: (state: State) => Buffer | ArrayBuffer | Uint8Array,
 };
 
 // A wrapper so we can use 'State' as an existentially quantified type.

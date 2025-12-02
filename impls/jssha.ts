@@ -15,7 +15,7 @@ export const register = async (r: Registry): Promise<void> => {
     ]) {
         r.hashAlgos.push({name, source: "NPM jssha", impl: {streaming: handler => handler({
             construct: () => new jssha(ident as any, 'ARRAYBUFFER'),
-            update: (state, data) => { state.update(data.buffer); },
+            update: (state, data) => { state.update(data); },
             final: state => state.getHash('ARRAYBUFFER'),
         })}, skipBigInputs: true}); // this module is slow
         // NOTE: Intentionally not including HMAC to save time and reduce the size of the results.
