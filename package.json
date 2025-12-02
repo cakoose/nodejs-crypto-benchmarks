@@ -42,5 +42,5 @@
         "@c4312/blake3-internal": "3.0.0",
         "node-gyp-build": "4.8.0"
     },
-    "packageManager": "yarn@4.1.0"
+    "packageManager": "yarn@4.12.0"
 }
