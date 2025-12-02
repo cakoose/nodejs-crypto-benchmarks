@@ -8,7 +8,6 @@ import * as argparse from 'argparse';
 import {Algo, HashImpl, Registry} from './impl';
 
 import {register as registerBlake2} from './impls/blake2';
-import {register as registerBlake2Wasm} from './impls/blake2.wasm';
 import {register as registerEd25519Supercop} from './impls/ed25519-supercop';
 import {register as registerHashWasm} from './impls/hash-wasm';
 import {register as registerJsSha3} from './impls/js-sha3';
@@ -48,7 +47,6 @@ async function mainAsync(progName: string, args: Array<string>) {
     };
 
     await registerBlake2(r);
-    await registerBlake2Wasm(r);
     await registerEd25519Supercop(r);
     await registerHashWasm(r);
     await registerJsSha3(r);
