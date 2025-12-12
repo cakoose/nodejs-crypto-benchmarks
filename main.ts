@@ -1,5 +1,3 @@
-require('source-map-support').install(); // eslint-disable-line @typescript-eslint/no-require-imports
-
 import assert from 'assert';
 import * as Benchmark from 'benchmark';
 import * as os from 'os';

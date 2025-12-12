@@ -5,7 +5,7 @@
     "scripts": {
         "watch": "./node_modules/.bin/tsc --watch",
         "build": "./node_modules/.bin/tsc",
-        "bench": "node dist/main.js",
+        "bench": "node --enable-source-maps dist/main.js",
         "lint": "yarn run eslint ."
     },
     "author": "Kannan Goundan <kannan@cakoose.com>",
@@ -34,7 +34,6 @@
         "eslint": "9.39.1",
         "globals": "16.5.0",
         "microtime": "3.1.1",
-        "source-map-support": "0.5.21",
         "ts-node": "10.9.2",
         "typescript": "5.9.3",
         "typescript-eslint": "8.49.0"
