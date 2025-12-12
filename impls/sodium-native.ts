@@ -146,7 +146,7 @@ export const register = async (r: Registry): Promise<void> => {
                 const plainText = Buffer.allocUnsafe(cipherText.length);
                 try {
                     decryptDetachedFn(plainText, null, cipherText, authTag, null, iv, key);
-                } catch (err) {
+                } catch (_err) {
                     return null;
                 }
                 return [plainText];

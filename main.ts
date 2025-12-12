@@ -1,4 +1,4 @@
-require('source-map-support').install(); // eslint-disable-line @typescript-eslint/no-var-requires
+require('source-map-support').install(); // eslint-disable-line @typescript-eslint/no-require-imports
 
 import assert from 'assert';
 import * as Benchmark from 'benchmark';
@@ -267,7 +267,7 @@ function printSystemInformation(packages: Iterable<string>) {
     console.log(`OS       ${os.platform()}, ${os.release()}`);
     console.log(`NPM `);
     for (const pkg of packages) {
-        const version = require(`${pkg}/package.json`).version; // eslint-disable-line @typescript-eslint/no-var-requires
+        const version = require(`${pkg}/package.json`).version; // eslint-disable-line @typescript-eslint/no-require-imports
         console.log(`    ${pkg} ${version}`);
     }
 }
@@ -326,7 +326,7 @@ function createSuiteHelper(includeRme: boolean, getSeconds: (targetStats: any) =
 type Filter = {
     include: boolean,
     regex: RegExp,
-}
+};
 
 function parseArgs(progName: string, args: Array<string>) {
     const parser = new argparse.ArgumentParser({
