@@ -1657,14 +1657,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp-build@npm:4.8.0":
-  version: 4.8.0
-  resolution: "node-gyp-build@npm:4.8.0"
+"node-gyp-build@npm:^4.2.0, node-gyp-build@npm:^4.2.3, node-gyp-build@npm:^4.4.0":
+  version: 4.8.4
+  resolution: "node-gyp-build@npm:4.8.4"
   bin:
     node-gyp-build: bin.js
     node-gyp-build-optional: optional.js
     node-gyp-build-test: build-test.js
-  checksum: 10c0/85324be16f81f0235cbbc42e3eceaeb1b5ab94c8d8f5236755e1435b4908338c65a4e75f66ee343cbcb44ddf9b52a428755bec16dcd983295be4458d95c8e1ad
+  checksum: 10c0/444e189907ece2081fe60e75368784f7782cfddb554b60123743dfb89509df89f1f29c03bbfa16b3a3e0be3f48799a4783f487da6203245fa5bed239ba7407e1
   languageName: node
   linkType: hard
 

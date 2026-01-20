@@ -38,10 +38,6 @@
         "typescript": "5.9.3",
         "typescript-eslint": "8.49.0"
     },
-    "resolutions": {
-        "@c4312/blake3-internal": "3.0.0",
-        "node-gyp-build": "4.8.0"
-    },
     "packageManager": "yarn@4.12.0",
     "volta": {
         "node": "20.19.6",

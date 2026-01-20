@@ -68,3 +68,8 @@ yarn run bench --test
 
 yarn run bench | tee results.txt
 ```
+
+## Explanation for non-obvious packages
+
+- `microtime`: The `benchmark` package says to install that for higher-precision timing on Node.js
+
