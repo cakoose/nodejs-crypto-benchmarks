@@ -22,6 +22,10 @@ $ yarn run bench [--include <regex>] [--exclude <regex>] [--test]
 
 ## Results
 
+2026-01-20:
+- GCP c4-standard-4: [Node 24.13.0](results/2026-01-20-Node-24.13.0-GCP-c4-standard-4.txt).
+- GCP c4a-standard-4: [Node 24.13.0](results/2026-01-20-Node-24.13.0-GCP-c4a-standard-4.txt).
+
 2024-03-15:
 - GCP n2-standard-4: [Node 20.11.1](results/2024-03-15-Node-20.11.1-GCP-n2-standard-4.txt).
 
