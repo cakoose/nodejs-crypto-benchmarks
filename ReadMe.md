@@ -42,29 +42,16 @@ Create new VM instance:
 
 sudo apt-get update
 sudo apt-get install git libtool automake gcc g++ make tmux vim
-
-git clone https://github.com/nodenv/nodenv.git ~/.nodenv
-cd ~/.nodenv && src/configure && make -C src
-echo 'PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(nodenv init -)"' >> ~/.bashrc
+curl https://get.volta.sh | bash
 
 # Exit and re-SSH to pull in ~/.bashrc updates
-
-mkdir -p "$(nodenv root)"/plugins
-git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
-
-nodenv install 14.15.0
-nodenv global 14.15.0
-npm install -g yarn
-nodenv rehash
 
 git clone https://github.com/cakoose/nodejs-crypto-benchmarks.git
 cd nodejs-crypto-benchmarks
 yarn install
 yarn run build
-yarn run bench --test
 
-# Optional: Start a 'tmux' session so the benchmark continues running even if you disconnect
+# Start a 'tmux' session so the benchmark continues running even if you disconnect
 
 yarn run bench | tee results.txt
 ```
